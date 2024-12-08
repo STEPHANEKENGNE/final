@@ -7,12 +7,10 @@ JeuDeLaVieBase::JeuDeLaVieBase(int lignes, int colonnes) : lignes(lignes), colon
     grille.resize(lignes, std::vector<int>(colonnes, 0));
 }
 
-JeuDeLaVieBase::~JeuDeLaVieBase() {}
-
 void JeuDeLaVieBase::chargerEtatDepuisFichier(const std::string& cheminFichier) {
     std::ifstream fichier(cheminFichier);
     if (!fichier.is_open()) {
-        std::cerr << "Erreur : Impossible d'ouvrir le fichier " << cheminFichier << std::endl;
+        std::cout << "Erreur : Impossible d'ouvrir le fichier " << cheminFichier << std::endl;
         exit(1);
     }
     fichier >> lignes >> colonnes;
@@ -21,7 +19,7 @@ void JeuDeLaVieBase::chargerEtatDepuisFichier(const std::string& cheminFichier) 
         for (int j = 0; j < colonnes; ++j) {
             fichier >> grille[i][j];
             if (grille[i][j] != 0 && grille[i][j] != 1) {
-                std::cerr << "Erreur : Valeurs invalides dans le fichier (seules 0 ou 1 sont autorisées)." << std::endl;
+                std::cout << "Erreur : Valeurs invalides dans le fichier (seules 0 ou 1 sont autorisées)." << std::endl;
                 exit(1);
             }
         }

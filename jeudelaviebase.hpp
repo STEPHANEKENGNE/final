@@ -11,7 +11,6 @@ protected:
 
 public:
     JeuDeLaVieBase(int lignes, int colonnes);
-    virtual ~JeuDeLaVieBase();
     virtual void prochaineGeneration() = 0;
     void chargerEtatDepuisFichier(const std::string& cheminFichier);
     void afficherGrilleConsole() const;
